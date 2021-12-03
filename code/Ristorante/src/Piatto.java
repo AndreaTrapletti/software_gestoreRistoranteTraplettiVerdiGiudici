@@ -1,36 +1,32 @@
+import java.util.Vector;
 
 public class Piatto {
 	protected String Nome; 
-	protected Ingrediente ingredienti[];
-	float Prezzo;
-	public Piatto(String nome, Ingrediente[] ingredienti, float prezzo) {
+	protected Vector<Ingrediente> ingredienti = new Vector<>();
+	double Prezzo;
+	boolean attivo = true;
+	public Piatto(String nome, Vector<Ingrediente> ingredienti, double prezzo) {
 		Nome = nome;
 		this.ingredienti = ingredienti;
 		Prezzo = prezzo;
 	} 
 		
-	public Piatto(String nome, Ingrediente ingredienti, float prezzo) {
+	public Piatto(String nome, Ingrediente ingredienti, double prezzo) {
 		Nome = nome;
-		this.ingredienti[0]= ingredienti;
+		this.ingredienti.add(ingredienti);
 		Prezzo = prezzo;
 	} 
 	
 	public void ModificaIngrediente(Ingrediente ingrediente, boolean AddRemove){ //true = aggiungi ingrediente, false = rimuovi
 		if (AddRemove == true) {
-			this.ingredienti[ingredienti.length+1] = ingrediente;
+			this.ingredienti.add(ingrediente);
 			System.out.println("Ingrediente aggiunto correttamente");
 		}else {
 			boolean controllo = false;
-			for(int i = 0; i<= this.ingredienti.length; i++) {
-				if(ingredienti[i].Nome ==ingrediente.Nome) {
+			for(int i = 0; i<= this.ingredienti.size(); i++) {
+				if(ingredienti.elementAt(i).name ==ingrediente.name) {
 					controllo = true;
-					Ingrediente momentaneo[]= ingredienti;
-					for(int k = 0; k<i;k++) {
-						ingredienti[k]= momentaneo[k];
-					}
-					for (int k =i+1;k<momentaneo.length; k++) {
-						ingredienti[k-1]=momentaneo[k];
-					}
+					ingredienti.remove(i);
 				}
 			}
 			if(controllo == true)
@@ -41,7 +37,7 @@ public class Piatto {
 		
 		
 	}
-	public void ModificaPrezzo(float NuovoPrezzo) {
+	public void ModificaPrezzo(double NuovoPrezzo) {
 		this.Prezzo = NuovoPrezzo; 
 		System.out.println("il prezzo è stato correttamente aggiornato");
 	}

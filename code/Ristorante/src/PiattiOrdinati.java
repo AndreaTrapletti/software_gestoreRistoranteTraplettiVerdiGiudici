@@ -1,14 +1,15 @@
+import java.util.Vector;
 
 public class PiattiOrdinati {
 
-	protected Piatto piatti[];
+	protected Vector<Piatto> piattiOrdinati = new Vector<>();
 	protected int Tavolo; 
 	protected int num_Persone;
-	protected static double Coperto = 2.5;
 	
-	public PiattiOrdinati(Piatto[] piatti, int tavolo, int num_Persone) {
 	
-		this.piatti = piatti;
+	public PiattiOrdinati( int tavolo, int num_Persone, Vector<Piatto> piatti) {
+	
+		this.piattiOrdinati = piatti;
 		Tavolo = tavolo;
 		this.num_Persone = num_Persone;
 	}
@@ -19,56 +20,52 @@ public class PiattiOrdinati {
 		this.num_Persone = num_Persone;
 	}
 	
-	public PiattiOrdinati(Piatto piatti, int tavolo, int num_Persone) {
+	public PiattiOrdinati( int tavolo, int num_Persone, Piatto piatti) {
 		
-		this.piatti[0] = piatti;
 		Tavolo = tavolo;
 		this.num_Persone = num_Persone;
+		this.AddPiatto(piatti);
 	}
 	
 		public void AddPiatto(Piatto piatto) {
-			piatti[piatti.length+1]=piatto;
+			piattiOrdinati.add(piatto);
+				for(int k = 0; k < piatto.ingredienti.size();k++) {
+					ListaIngrediente.RemoveQuantità(piatto.ingredienti.elementAt(k).name,1);
+				}
 			System.out.println("piatto aggiunto correttamente");
+			
 		}
 		public void RemovePiatto(Piatto piatto) {
 			boolean check = false;
-			for(int i= 0; i<=piatti.length; i++) {
+			for(int i= 0; i<=piattiOrdinati.size(); i++) {
 				if(check=false) {
-				if(piatti[i].Nome==piatto.Nome) {
-					Piatto momento[]=piatti;
-					for(int k=0; k<i;k++) {
-						piatti[k]= momento[k];
-						
-					}
-					for(int k=i+1; k<momento.length; k++) {
-						piatti[k-1]=momento[k];
-					}
+				if(piattiOrdinati.elementAt(i).Nome==piatto.Nome) {
+					piattiOrdinati.remove(i);
 					check=true;
 					System.out.println("piatto rimosso");
 					}
-				
-					}
+				}
 			}
 		}
 		
-		public float Totale() {
-			float totale = 0;
-			for(int i = 0; i <= piatti.length;i++) {
-				totale = totale + piatti[i].Prezzo;
+		public double Totale() {
+			double totale = 0;
+			for(int i = 0; i < piattiOrdinati.size();i++) {
+				totale = totale + piattiOrdinati.elementAt(i).Prezzo;
 			}
-			totale += (Coperto*num_Persone);
+			totale += (Menù.Coperto*num_Persone);
 			return totale;
 		}
 		
-		public float TotaleRomana() {
-			float totale = Totale();
+		public double TotaleRomana() {
+			double totale = Totale();
 			return totale/num_Persone;
 		}
-		public Ingrediente[] CalcoloIngredienti() {
-			Ingrediente ingredientireturn[]= null;
-			for(int i= 0; i<=piatti.length; i++) {
-				for(int k = 0; k <=piatti[i].ingredienti.length;k++) {
-					ingredientireturn[ingredientireturn.length+k]=piatti[i].ingredienti[k];
+		public Vector<Ingrediente> CalcoloIngredienti() {
+			Vector<Ingrediente> ingredientireturn= new Vector<>();
+			for(int i= 0; i<=piattiOrdinati.size(); i++) {
+				for(int k = 0; k <=piattiOrdinati.elementAt(i).ingredienti.size();k++) {
+					ingredientireturn.add(piattiOrdinati.elementAt(i).ingredienti.elementAt(k));
 				}
 			}
 			return ingredientireturn;
