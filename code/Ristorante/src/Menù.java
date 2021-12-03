@@ -1,3 +1,4 @@
+import java.awt.Menu;
 import java.util.Vector;
 
 public class Menù {
@@ -35,24 +36,56 @@ public class Menù {
 	}
 	public void disabilita(Ingrediente ing) {
 		boolean check= false;
+		boolean presente = false;
+		Vector<Piatto> disattivati = new Vector<>();
 		for(int i = 0; i<piatti.size();i++) {
 			for(int k = 0; k < piatti.elementAt(i).ingredienti.size();k++) {
+				
 				if(piatti.elementAt(i).ingredienti.elementAt(k).name.equals(ing.name)) {
-					piatti.elementAt(i).attivo=false;
-					check=true;
+					check = true;
+					if(piatti.elementAt(i).attivo==true) {
+						piatti.elementAt(i).attivo=false;
+						disattivati.add(piatti.elementAt(i));
+					}
+					else {
+						presente=true;
+					}
+					
 				}
+			
+			}
+			
+		}
+	
+		if(check==true && presente == false) {
+			System.out.print("i piatt non più disponibili sono stati disattivati: ");
+			for(int i=0; i<disattivati.size(); i++) {
+			System.out.println(disattivati.elementAt(i).Nome.toString());
+			aggiornaMenuNegativo();
 			}
 		}
-		if(check==false)System.out.println("nessun piatto contiene questo ingrediente");
-		else System.out.println("tutti i piatti non più disponibili sono stati disattivati");
+
+		
 	}
+	public void aggiornaMenuNegativo() {
+		for(int i=0; i<piatti.size(); i++) {
+			if(piatti.elementAt(i).attivo == false) {
+				piatti.remove(i);
+			}
+		}
+	}
+	
 	public void abilita(Ingrediente ing) {
 		for(int i = 0; i<piatti.size();i++) {
 			for(int k = 0; k < piatti.elementAt(i).ingredienti.size();k++) {
 				if(piatti.elementAt(i).ingredienti.elementAt(k).name.equals(ing.name)) {
 					piatti.elementAt(i).attivo=true;
+					aggiornaMenuPositivo(piatti.elementAt(i));
 				}
 			}
 		}
+	}
+	public void aggiornaMenuPositivo(Piatto p) {
+		piatti.add(p);
 	}
 }

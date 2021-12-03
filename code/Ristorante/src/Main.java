@@ -47,9 +47,14 @@ public class Main {
 		for(int i=0; i<lista.size(); i++) {
 			if(lista.elementAt(i).ControlloQuantita() == false || lista.elementAt(i).ControlloScadenza() == false) {
 				listaScadutiFiniti.addElement(lista.elementAt(i));
-				menu.disabilita(lista.elementAt(i));				
+				menu.disabilita(lista.elementAt(i));
+				System.out.print("i piatti contenuti ora nel menù sono: " );
+				for(int k=0; k<menu.piatti.size(); k++) {
+					System.out.println(menu.piatti.elementAt(k).Nome.toString());
+				}
 			}
 			//System.out.print(lista.elementAt(i).name.toString());
 		}
+		
 	}
 }
