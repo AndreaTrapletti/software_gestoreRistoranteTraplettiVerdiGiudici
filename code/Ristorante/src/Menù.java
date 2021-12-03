@@ -1,6 +1,7 @@
 
 public class Menù {
 	Piatto piatti[];
+	protected static double Coperto = 2.50;
 
 	public Menù(Piatto[] piatti) {
 	
@@ -33,5 +34,8 @@ public class Menù {
 			
 				}
 		}
+	}
+	public void ModificaCoperto(double coperto) {
+		Menù.Coperto = coperto;
 	}
 }
