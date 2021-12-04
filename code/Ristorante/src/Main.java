@@ -33,6 +33,12 @@ public class Main {
 		for(int i = 0; i< lista.lista.size();i++) {
 			System.out.println(" ingrediente : "+ lista.lista.elementAt(i).name + " qt: "+ lista.lista.elementAt(i).qtd);
 		}
+		
+        Thread fornitore = new Thread(new Fornitore("Mattia", "Giudici", "fornitore1"));
+		
+		fornitore.run();
+		fornitore.start();
+		
 		while(true) {
 			loopControllo(lista.lista, listaScadutiFiniti.listaIngredienteScadutiFiniti, menu);
 			try {
@@ -41,6 +47,7 @@ public class Main {
 			    Thread.currentThread().interrupt();
 			}
 		}
+		
 	}
 	
 	public static void loopControllo(Vector<Ingrediente> lista, Vector<Ingrediente> listaScadutiFiniti, Menù menu) {
@@ -55,6 +62,7 @@ public class Main {
 			}
 			//System.out.print(lista.elementAt(i).name.toString());
 		}
+
 		
 	}
 }
