@@ -2,7 +2,7 @@ import java.awt.Menu;
 import java.util.Vector;
 
 public class Menù {
-	Vector<Piatto> piatti = new Vector<>();
+	protected static Vector<Piatto> piatti = new Vector<>();
 	protected static double Coperto = 2.50;
 
 	public Menù(Vector<Piatto> piatti) {
@@ -34,7 +34,7 @@ public class Menù {
 	public void ModificaCoperto(double coperto) {
 		Menù.Coperto = coperto;
 	}
-	public void disabilita(Ingrediente ing) {
+	public static void disabilita(Ingrediente ing) {
 		boolean check= false;
 		boolean presente = false;
 		Vector<Piatto> disattivati = new Vector<>();
@@ -58,7 +58,7 @@ public class Menù {
 		}
 	
 		if(check==true && presente == false) {
-			System.out.print("i piatt non più disponibili sono stati disattivati: ");
+			System.out.print("i piatti non più disponibili sono stati disattivati: ");
 			for(int i=0; i<disattivati.size(); i++) {
 			System.out.println(disattivati.elementAt(i).Nome.toString());
 			aggiornaMenuNegativo();
@@ -67,7 +67,7 @@ public class Menù {
 
 		
 	}
-	public void aggiornaMenuNegativo() {
+	public static void aggiornaMenuNegativo() {
 		for(int i=0; i<piatti.size(); i++) {
 			if(piatti.elementAt(i).attivo == false) {
 				piatti.remove(i);
@@ -87,5 +87,11 @@ public class Menù {
 	}
 	public void aggiornaMenuPositivo(Piatto p) {
 		piatti.add(p);
+	}
+	public static void stampa() {
+		System.out.print("i piatti contenuti ora nel menù sono: " );
+		for(int k=0; k<piatti.size(); k++) {
+			System.out.println(piatti.elementAt(k).Nome.toString());
+		}
 	}
 }

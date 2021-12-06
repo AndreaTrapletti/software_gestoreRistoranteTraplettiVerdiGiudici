@@ -46,4 +46,7 @@ public class ListaIngrediente {
 		if(check != true)
 			System.out.println("Ingrediente non trovato, si consiglia di aggiungerlo");
 	}
+	
+	
+	
 }

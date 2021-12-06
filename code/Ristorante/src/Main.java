@@ -1,7 +1,3 @@
-import java.util.Date;
-import java.util.Vector;
-import java.util.concurrent.TimeUnit;
-
 import prog.utili.Data;
 
 public class Main {
@@ -11,6 +7,7 @@ public class Main {
 
 		ListaIngredienteScadutiFiniti listaScadutiFiniti = new ListaIngredienteScadutiFiniti();
 		ListaIngrediente lista = new ListaIngrediente();
+		Gestione gestore = new Gestione(); 
 		Ingrediente i1 = new Ingrediente("mela", 50, new Data(10, 01, 2022), 22);
 		Ingrediente i2 = new Ingrediente("carne", 20, new Data(22, 01, 2022), 120);
 		Ingrediente i3 = new Ingrediente("riso", 100, new Data(22, 01, 2024), 99);
@@ -30,39 +27,14 @@ public class Main {
 		tavolo1.AddPiatto(CarneFung);
 		tavolo1.AddPiatto(CocaCola);
 		System.out.println("il totale del tavolo 1 è :" + tavolo1.TotaleRomana()+ " €");
-		for(int i = 0; i< lista.lista.size();i++) {
-			System.out.println(" ingrediente : "+ lista.lista.elementAt(i).name + " qt: "+ lista.lista.elementAt(i).qtd);
+		for(int i = 0; i< ListaIngrediente.lista.size();i++) {
+			System.out.println(" ingrediente : "+ ListaIngrediente.lista.elementAt(i).name + " qt: "+ ListaIngrediente.lista.elementAt(i).qtd);
 		}
-		
-        Thread fornitore = new Thread(new Fornitore("Mattia", "Giudici", "fornitore1"));
-		
-		fornitore.run();
-		fornitore.start();
-		
-		while(true) {
-			loopControllo(lista.lista, listaScadutiFiniti.listaIngredienteScadutiFiniti, menu);
-			try {
-			    TimeUnit.SECONDS.sleep(10);  //fallo ogni giorno = 86400secondi
-			} catch (InterruptedException ie) {
-			    Thread.currentThread().interrupt();
-			}
-		}
-		
-	}
 	
-	public static void loopControllo(Vector<Ingrediente> lista, Vector<Ingrediente> listaScadutiFiniti, Menù menu) {
-		for(int i=0; i<lista.size(); i++) {
-			if(lista.elementAt(i).ControlloQuantita() == false || lista.elementAt(i).ControlloScadenza() == false) {
-				listaScadutiFiniti.addElement(lista.elementAt(i));
-				menu.disabilita(lista.elementAt(i));
-				System.out.print("i piatti contenuti ora nel menù sono: " );
-				for(int k=0; k<menu.piatti.size(); k++) {
-					System.out.println(menu.piatti.elementAt(k).Nome.toString());
-				}
-			}
-			//System.out.print(lista.elementAt(i).name.toString());
-		}
-
-		
+        Fornitore fornitore = new Fornitore("Mattia", "Giudici", "fornitore1", gestore);
+		Sistema sistema = new Sistema(gestore);
+		fornitore.start();
+		sistema.start();		
 	}
 }
+	
