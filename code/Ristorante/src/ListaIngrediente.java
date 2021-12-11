@@ -4,6 +4,7 @@ import prog.io.ConsoleInputManager;
 
 public class ListaIngrediente {
 	public  static Vector<Ingrediente> lista = new Vector<>();
+	
 	public ListaIngrediente() {}
 	public void AddIngrediente(Ingrediente i) {
 		lista.add(i);

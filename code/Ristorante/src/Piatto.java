@@ -3,9 +3,9 @@ import java.util.Vector;
 public class Piatto {
 	protected String Nome; 
 	protected Vector<Ingrediente> ingredienti = new Vector<>();
-	double Prezzo;
-	boolean attivo = true;
-	public Piatto(String nome, Vector<Ingrediente> ingredienti, double prezzo) {
+	protected double Prezzo;
+	protected boolean attivo = true;
+	protected Piatto(String nome, Vector<Ingrediente> ingredienti, double prezzo) {
 		Nome = nome;
 		this.ingredienti = ingredienti;
 		Prezzo = prezzo;

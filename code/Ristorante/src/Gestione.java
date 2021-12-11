@@ -4,8 +4,8 @@ import prog.utili.Data;
 
 public class Gestione {
 	
-	Semaphore mutex;  
-	Semaphore mutex2;
+	public Semaphore mutex;  
+	public Semaphore mutex2;
 		
 	public Gestione(){
 		mutex = new Semaphore(1,true);
