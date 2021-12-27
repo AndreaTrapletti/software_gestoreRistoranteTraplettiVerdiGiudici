@@ -40,7 +40,6 @@ public class Menù {
 		Vector<Piatto> disattivati = new Vector<>();
 		for(int i = 0; i<piatti.size();i++) {
 			for(int k = 0; k < piatti.elementAt(i).ingredienti.size();k++) {
-				
 				if(piatti.elementAt(i).ingredienti.elementAt(k).name.equals(ing.name)) {
 					check = true;
 					if(piatti.elementAt(i).attivo==true) {
@@ -67,6 +66,7 @@ public class Menù {
 
 		
 	}
+	
 	public static void aggiornaMenuNegativo() {
 		for(int i=0; i<piatti.size(); i++) {
 			if(piatti.elementAt(i).attivo == false) {
@@ -75,7 +75,7 @@ public class Menù {
 		}
 	}
 	
-	public void abilita(Ingrediente ing) {
+	public static void abilita(Ingrediente ing) {
 		for(int i = 0; i<piatti.size();i++) {
 			for(int k = 0; k < piatti.elementAt(i).ingredienti.size();k++) {
 				if(piatti.elementAt(i).ingredienti.elementAt(k).name.equals(ing.name)) {
@@ -85,7 +85,7 @@ public class Menù {
 			}
 		}
 	}
-	public void aggiornaMenuPositivo(Piatto p) {
+	public static void aggiornaMenuPositivo(Piatto p) {
 		piatti.add(p);
 	}
 	public static void stampa() {

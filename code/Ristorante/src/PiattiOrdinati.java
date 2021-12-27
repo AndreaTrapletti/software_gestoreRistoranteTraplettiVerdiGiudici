@@ -28,13 +28,17 @@ public class PiattiOrdinati {
 	}
 	
 		public void AddPiatto(Piatto piatto) {
-			piattiOrdinati.add(piatto);
-				for(int k = 0; k < piatto.ingredienti.size();k++) {
-					ListaIngrediente.RemoveQuantità(piatto.ingredienti.elementAt(k).name,1);
-				}
-			System.out.println("piatto aggiunto correttamente");
+			int count =0 ;
 			
+				for(int k = 0; k < piatto.ingredienti.size();k++) {
+					if (ListaIngrediente.RemoveQuantità(piatto.ingredienti.elementAt(k).name,1)) 
+						count++;
 		}
+				if (count == piatto.ingredienti.size()) {
+					piattiOrdinati.add(piatto);
+				System.out.println("piatto aggiunto correttamente");}
+				else System.out.println("piatto non ordinabile");
+				}
 		public void RemovePiatto(Piatto piatto) {
 			boolean check = false;
 			for(int i= 0; i<=piattiOrdinati.size(); i++) {

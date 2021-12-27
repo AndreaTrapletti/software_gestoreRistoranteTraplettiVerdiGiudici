@@ -29,6 +29,7 @@ public class Fornitore extends Thread{
 		this.Mail=Mail;
 		this.P_IVA=P_IVA;
 	}
+	
 	@Override
 	public void run () {
 		System.out.println(this.nome + " sono partito");

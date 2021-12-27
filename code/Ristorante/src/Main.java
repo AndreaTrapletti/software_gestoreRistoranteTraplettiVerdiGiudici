@@ -11,12 +11,12 @@ public class Main {
 		Ingrediente i1 = new Ingrediente("mela", 50, new Data(10, 01, 2022), 22);
 		Ingrediente i2 = new Ingrediente("carne", 20, new Data(22, 01, 2022), 120);
 		Ingrediente i3 = new Ingrediente("riso", 100, new Data(22, 01, 2024), 99);
-		Ingrediente i4 = new Ingrediente("CocaCola", 1, new Data(22, 06, 2023), 200);
+		Ingrediente i4 = new Ingrediente("CocaCola", 10, new Data(22, 06, 2000), 200);
 		Ingrediente i5 = new Ingrediente("Funghi porcini", 5, new Data(13, 02, 2022), 16);
 		lista.AddIngrediente(i1);
 		lista.AddIngrediente(i2);
 		lista.AddIngrediente(i3);
-		lista.AddIngrediente(i4);	
+		lista.AddIngrediente(i4);
 		lista.AddIngrediente(i5);
 		Piatto CocaCola = new Piatto("CocaCola", i4, 3);
 		Piatto CarneFung = new Piatto("Bistecca ai porcini",i5,6.90);
@@ -35,6 +35,7 @@ public class Main {
 		Sistema sistema = new Sistema(gestore);
 		fornitore.start();
 		sistema.start();		
+		
 	}
 }
 	

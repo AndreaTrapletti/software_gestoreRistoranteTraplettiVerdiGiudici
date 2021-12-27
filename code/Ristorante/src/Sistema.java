@@ -1,6 +1,6 @@
 
 public class Sistema extends Thread{
-	Gestione gestione;
+	public Gestione gestione;
 
 		public Sistema(Gestione gestione) {
 			this.gestione=gestione;

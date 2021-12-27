@@ -20,7 +20,8 @@ public class Gestione {
 		for(int i=0; i<ListaIngrediente.lista.size(); i++) {
 			if(ListaIngrediente.lista.elementAt(i).ControlloQuantita() == false || ListaIngrediente.lista.elementAt(i).ControlloScadenza() == false) {
 				if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.contains(ListaIngrediente.lista.elementAt(i))!=true) {
-				ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.addElement(ListaIngrediente.lista.elementAt(i));
+				ListaIngredienteScadutiFiniti.AddIngrediente(ListaIngrediente.lista.elementAt(i));
+				ListaIngrediente.RemoveQuantità(ListaIngrediente.lista.elementAt(i).name, ListaIngrediente.lista.elementAt(i).qtd);
 				Menù.disabilita(ListaIngrediente.lista.elementAt(i));}
 				Menù.stampa();
 			}
@@ -38,29 +39,19 @@ public class Gestione {
 		}
 		if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.size()==0) return;
 		for(int i=0; i<ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.size(); i++) {
-			if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).qtd <= 0) {
-				int qtd = (int) (Math.random()+0.1)*10;
 			
-				
-				Ingrediente daInserire = new Ingrediente(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name,qtd, 
-						ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).scadenza, ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).prezzo);
-				ListaIngrediente.lista.add(daInserire);
-	
-				ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.remove(i);
-				System.out.println("il fornitore ha aggiunto ingredienti al magazzino");
-			}
-			else if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).scadenza.isMinore(new Data())) {
-			
+				int qtd = (int) (Math.random()*50);
 				Data data = new Data();
-				int mese = data.getMese() + (int) (0.1 + Math.random())*10;
+				int random = (int) (Math.random()*10);
+				int mese = data.getMese() + random;
 				data = new Data(data.getGiorno(), mese, data.getAnno());
-				
-				Ingrediente daInserire = new Ingrediente(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, 
-						ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).qtd, data, ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).prezzo);
-				ListaIngrediente.lista.add(daInserire);
+				ListaIngrediente.AumentaQuantità(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, qtd);
+				ListaIngrediente.cambioData(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, data);
+				Menù.abilita(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i));
 				ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.remove(i);
 				System.out.println("il fornitore ha aggiunto ingredienti al magazzino");
-			}
+				
+				
 			
  		}
 		mutex.release();
