@@ -1,10 +1,11 @@
 
+import java.util.Observable;
 import java.util.Vector;
 
 import prog.utili.Data;
 
 
-public class Ingrediente {
+public class Ingrediente  {
 	
 	protected String name = "";
 	protected int qtd = 0;
@@ -35,6 +36,7 @@ public class Ingrediente {
 	public boolean ControlloScadenza() {
 		Data oggi = new Data();
 		if(oggi.equals(this.scadenza) || oggi.isMaggiore(this.scadenza)) {
+			
 			return false;
 		}
 			

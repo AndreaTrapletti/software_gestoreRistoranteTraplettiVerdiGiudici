@@ -20,7 +20,8 @@ public class Main {
 		lista.AddIngrediente(i5);
 		Piatto CocaCola = new Piatto("CocaCola", i4, 3);
 		Piatto CarneFung = new Piatto("Bistecca ai porcini",i5,6.90);
-		Menù menu = new Menù(CocaCola);
+		Menù menu = Menù.getIstance();
+		menu.AddPiatto(CocaCola);
 		menu.AddPiatto(CarneFung);
 		CarneFung.ModificaIngrediente(i2,true);
 		PiattiOrdinati tavolo1 = new PiattiOrdinati(1, 4);

@@ -1,17 +1,21 @@
-import java.awt.Menu;
 import java.util.Vector;
 
 public class Menù {
+	
+	private static Menù menù;
+	private String nome;
+	
 	protected static Vector<Piatto> piatti = new Vector<>();
 	protected static double Coperto = 2.50;
-
-	public Menù(Vector<Piatto> piatti) {
 	
-		this.piatti = piatti;
+	private Menù() {
+		nome = "menù";
 	}
-	public Menù(Piatto piatti) {
-		
-		this.piatti.add(piatti);
+
+	public static Menù getIstance() {
+		if (menù == null)
+			menù = new Menù();
+		return menù;
 	}
 	public void AddPiatto(Piatto piatto) {
 		piatti.add(piatto);
