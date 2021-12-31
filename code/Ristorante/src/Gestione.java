@@ -37,7 +37,10 @@ public class Gestione {
 		}catch (InterruptedException ie){
 			Thread.currentThread().interrupt();
 		}
-		if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.size()==0) return;
+		if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.size()==0) {
+			mutex.release();
+			return;
+		}
 		for(int i=0; i<ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.size(); i++) {
 			
 				int qtd = (int) (Math.random()*50);

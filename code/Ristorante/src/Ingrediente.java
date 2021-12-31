@@ -5,7 +5,7 @@ import java.util.Vector;
 import prog.utili.Data;
 
 
-public class Ingrediente  {
+public class Ingrediente extends Observable {
 	
 	protected String name = "";
 	protected int qtd = 0;

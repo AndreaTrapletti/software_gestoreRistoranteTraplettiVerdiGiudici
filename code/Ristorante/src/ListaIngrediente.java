@@ -1,3 +1,4 @@
+
 import java.util.Vector;
 
 import prog.io.ConsoleInputManager;
@@ -68,6 +69,7 @@ public class ListaIngrediente {
 			System.out.println("Ingrediente non trovato, si consiglia di aggiungerlo");
 		}
 	}
+	
 	
 	
 }

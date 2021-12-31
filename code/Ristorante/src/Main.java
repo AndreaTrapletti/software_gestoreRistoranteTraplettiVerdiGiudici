@@ -32,9 +32,9 @@ public class Main {
 			System.out.println(" ingrediente : "+ ListaIngrediente.lista.elementAt(i).name + " qt: "+ ListaIngrediente.lista.elementAt(i).qtd);
 		}
 	
-        Fornitore fornitore = new Fornitore("Mattia", "Giudici", "fornitore1", gestore);
+        MattiaGiudici fornitore1 =  new MattiaGiudici("Mattia", "Giudici", "fornitore1", gestore);
 		Sistema sistema = new Sistema(gestore);
-		fornitore.start();
+		fornitore1.start();
 		sistema.start();		
 		
 	}
