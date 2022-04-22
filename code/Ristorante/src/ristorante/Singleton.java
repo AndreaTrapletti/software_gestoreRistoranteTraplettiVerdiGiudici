@@ -1,3 +1,4 @@
+package ristorante;
 
 public class Singleton {
 	private static Singleton theIstance;

@@ -1,3 +1,4 @@
+package ristorante;
 import java.util.concurrent.Semaphore;
 
 import prog.utili.Data;

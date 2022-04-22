@@ -1,3 +1,4 @@
+package ristorante;
 
 import java.util.Vector;
 
@@ -6,7 +7,6 @@ import prog.utili.Data;
 
 public class ListaIngrediente {
 	public  static Vector<Ingrediente> lista = new Vector<>();
-	
 	
 	public ListaIngrediente() {}
 	public void AddIngrediente(Ingrediente i) {

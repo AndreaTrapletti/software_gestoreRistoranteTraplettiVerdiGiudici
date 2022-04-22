@@ -1,3 +1,4 @@
+package ristorante;
 import java.util.Vector;
 
 public class Piatto {

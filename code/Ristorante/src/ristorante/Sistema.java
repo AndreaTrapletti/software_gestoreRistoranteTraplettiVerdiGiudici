@@ -1,4 +1,4 @@
-
+package ristorante;
 public class Sistema extends Thread{
 	public Gestione gestione;
 

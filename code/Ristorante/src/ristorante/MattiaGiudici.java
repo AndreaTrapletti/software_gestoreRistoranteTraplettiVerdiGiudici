@@ -1,4 +1,4 @@
-
+package ristorante;
 public class MattiaGiudici extends Fornitore{
 	protected String nome;
 	protected String cognome;
