@@ -8,9 +8,9 @@ public class Main {
 		ListaIngredienteScadutiFiniti listaScadutiFiniti = new ListaIngredienteScadutiFiniti();
 		ListaIngrediente lista = new ListaIngrediente();
 		Gestione gestore = new Gestione(); 
-		Ingrediente i1 = new Ingrediente("mela", 50, new Data(10, 01, 2022), 22);
+		Ingrediente i1 = new Ingrediente("porchetta", 50, new Data(10, 01, 2022), 22);
 		Ingrediente i2 = new Ingrediente("carne", 20, new Data(22, 01, 2022), 120);
-		Ingrediente i3 = new Ingrediente("riso", 100, new Data(22, 01, 2024), 99);
+		Ingrediente i3 = new Ingrediente("pasta", 100, new Data(22, 01, 2024), 99);
 		Ingrediente i4 = new Ingrediente("CocaCola", 10, new Data(22, 06, 2000), 200);
 		Ingrediente i5 = new Ingrediente("Funghi porcini", 5, new Data(13, 02, 2022), 16);
 		lista.AddIngrediente(i1);
