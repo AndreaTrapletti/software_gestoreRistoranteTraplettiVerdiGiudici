@@ -22,7 +22,7 @@ public class Gestione {
 			if(ListaIngrediente.lista.elementAt(i).ControlloQuantita() == false || ListaIngrediente.lista.elementAt(i).ControlloScadenza() == false) {
 				if(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.contains(ListaIngrediente.lista.elementAt(i))!=true) {
 				ListaIngredienteScadutiFiniti.AddIngrediente(ListaIngrediente.lista.elementAt(i));
-				ListaIngrediente.RemoveQuantità(ListaIngrediente.lista.elementAt(i).name, ListaIngrediente.lista.elementAt(i).qtd);
+				ListaIngrediente.RemoveQuantita(ListaIngrediente.lista.elementAt(i).name, ListaIngrediente.lista.elementAt(i).qtd);
 				Menù.disabilita(ListaIngrediente.lista.elementAt(i));}
 				Menù.stampa();
 			}
@@ -49,7 +49,7 @@ public class Gestione {
 				int random = (int) (Math.random()*10);
 				int mese = data.getMese() + random;
 				data = new Data(data.getGiorno(), mese, data.getAnno());
-				ListaIngrediente.AumentaQuantità(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, qtd);
+				ListaIngrediente.AumentaQuantita(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, qtd);
 				ListaIngrediente.cambioData(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i).name, data);
 				Menù.abilita(ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.elementAt(i));
 				ListaIngredienteScadutiFiniti.listaIngredienteScadutiFiniti.remove(i);

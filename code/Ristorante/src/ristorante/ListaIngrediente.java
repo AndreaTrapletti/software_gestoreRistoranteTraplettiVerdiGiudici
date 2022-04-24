@@ -16,7 +16,7 @@ public class ListaIngrediente {
 	public void RemoveIngrediente(Ingrediente i) {
 		lista.remove(i);
 	}
-	public static void AumentaQuantità(String nome, int qt) {
+	public static void AumentaQuantita(String nome, int qt) {
 		boolean check = false; 
 		for(int i = 0; i<lista.size(); i++) {
 			if(lista.elementAt(i).name == nome && check == false) {
@@ -30,7 +30,7 @@ public class ListaIngrediente {
 			System.out.println("Ingrediente non trovato, si consiglia di aggiungerlo");
 		}
 	}
-	public static boolean RemoveQuantità(String nome, int qt) {
+	public static boolean RemoveQuantita(String nome, int qt) {
 		boolean check = false; 
 		for(int i = 0; i<lista.size(); i++) {
 			if(lista.elementAt(i).name == nome && check == false) {

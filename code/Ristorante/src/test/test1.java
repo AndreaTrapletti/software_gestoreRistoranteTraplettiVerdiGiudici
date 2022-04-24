@@ -10,25 +10,27 @@ import prog.utili.Data;
 class test1 {
 	Ingrediente i = new Ingrediente("mais", 2, new Data(22, 06, 2000), 5);
 	@Test
-	void test() {
+	void testPrezzo() {
 
 		assertEquals(5, i.getPrezzo());
 	}
-	void test2() {
+	@Test
+	void testQuantita() {
 
 		assertEquals(2, i.getQtd());
 	}
-	void test3() {
+	@Test
+	void testScadenza() {
 
 		assertEquals(new Data(22, 06, 2000), i.getScadenza());
 	}
-	
-	void testIngrediente1() {
+	@Test
+	void testScadenza2() {
 		
-		assertEquals(true, i.ControlloScadenza());
+		assertEquals(false, i.ControlloScadenza());
 	}
-	
-	void testIngrediente2() {
+	@Test
+	void testQuantita2() {
 
 		assertEquals(true, i.ControlloQuantita());
 	}

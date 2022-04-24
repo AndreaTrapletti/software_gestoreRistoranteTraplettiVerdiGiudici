@@ -38,6 +38,12 @@ public class Piatto {
 		
 		
 	}
+	public double getPrezzo() {
+		return Prezzo;
+	}
+	public Vector<Ingrediente> getListaIngredienti(){
+		return ingredienti;
+	}
 	public void ModificaPrezzo(double NuovoPrezzo) {
 		this.Prezzo = NuovoPrezzo; 
 		System.out.println("il prezzo è stato correttamente aggiornato");

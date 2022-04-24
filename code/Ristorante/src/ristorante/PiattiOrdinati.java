@@ -32,7 +32,7 @@ public class PiattiOrdinati {
 			int count =0 ;
 			
 				for(int k = 0; k < piatto.ingredienti.size();k++) {
-					if (ListaIngrediente.RemoveQuantità(piatto.ingredienti.elementAt(k).name,1)) 
+					if (ListaIngrediente.RemoveQuantita(piatto.ingredienti.elementAt(k).name,1)) 
 						count++;
 		}
 				if (count == piatto.ingredienti.size()) {

@@ -44,6 +44,7 @@ public class Ingrediente extends Observable {
 		else 
 			return true;
 	}
+	
 	public boolean ControlloQuantita() {
 		if(this.qtd>0)
 			return true;
