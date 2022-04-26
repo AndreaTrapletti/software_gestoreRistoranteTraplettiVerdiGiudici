@@ -16,6 +16,7 @@ public class Menù {
 	public static Menù getIstance() {
 		if (menù == null)
 			menù = new Menù();
+		    System.out.println("istanza menù creta con successo");
 		return menù;
 	}
 	public void AddPiatto(Piatto piatto) {
